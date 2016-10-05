@@ -4,20 +4,24 @@ ENV PROTOBUF_VERSION=3.0.2
 
 RUN apk add --no-cache \
   jq \
-  zip \
-  unzip \
   git \
-  vim \
+  protobuf \
   && rm -rf /var/cache/apk/*
 
-RUN go get -u \
+RUN go get -v \
   github.com/nsf/gocode \
   golang.org/x/tools/cmd/goimports \
   github.com/mitchellh/gox \
-  github.com/tools/godep
+  github.com/tools/godep \
+  github.com/jteeuwen/go-bindata/... \
+  github.com/elazarl/go-bindata-assetfs/... \
+  github.com/golang/protobuf/proto \
+  github.com/golang/protobuf/protoc-gen-go \
+  google.golang.org/grpc \
+  github.com/gengo/grpc-gateway/protoc-gen-grpc-gateway \
+  github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
+  github.com/emirpasic/gods/...
 
-ADD go-packages.sh /tmp
 
 EXPOSE 5555-5565
 
-CMD chmod +x /tmp/go-packages.sh; /bin/sh
