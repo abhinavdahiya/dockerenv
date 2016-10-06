@@ -22,6 +22,7 @@ RUN go get -v \
   github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
   github.com/emirpasic/gods/...
 
+ADD go-exec.sh /tmp
 
 EXPOSE 5555-5565
 
