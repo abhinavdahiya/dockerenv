@@ -9,6 +9,7 @@ RUN apk add --no-cache \
   && rm -rf /var/cache/apk/*
 
 RUN go get -v \
+  github.com/pkg/errors \
   github.com/nsf/gocode \
   golang.org/x/tools/cmd/goimports \
   github.com/mitchellh/gox \
